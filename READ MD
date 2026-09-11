@@ -1,0 +1,28 @@
+# E-Commerce Application
+
+## Project Description
+
+A collaborative E-Commerce Application developed using Git and GitHub.
+
+## Features
+
+- User Registration and Login
+- Product Management
+- Product Search
+- Shopping Cart
+- Order Management
+- Payment Functionality
+- Admin Dashboard
+
+## Git Collaboration
+
+The project uses Git branches for parallel development.
+
+### Branches
+
+- main
+- development
+- feature/auth
+- feature/products
+- feature/cart-orders
+- feature/payment-admin
