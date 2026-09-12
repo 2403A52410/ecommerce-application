@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Admin Dashboard</h1>
+        <p>Manage the e-commerce application</p>
+    </header>
+
+    <main>
+
+        <h2>Dashboard Overview</h2>
+
+        <div>
+            <h3>Total Products</h3>
+            <p id="productCount">25</p>
+        </div>
+
+        <div>
+            <h3>Total Orders</h3>
+            <p id="orderCount">10</p>
+        </div>
+
+        <div>
+            <h3>Total Users</h3>
+            <p id="userCount">50</p>
+        </div>
+
+        <hr>
+
+        <h2>Admin Actions</h2>
+
+        <button onclick="showMessage('Product management selected')">
+            Manage Products
+        </button>
+
+        <button onclick="showMessage('Order management selected')">
+            Manage Orders
+        </button>
+
+        <button onclick="showMessage('User management selected')">
+            Manage Users
+        </button>
+
+        <p id="adminMessage"></p>
+
+    </main>
+
+    <script>
+
+        function showMessage(message) {
+
+            document.getElementById("adminMessage").innerText =
+                message;
+        }
+
+    </script>
+
+</body>
+
+</html>
