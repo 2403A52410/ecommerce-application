@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Product Management</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,45 +17,124 @@
         <p>Manage and search products</p>
     </header>
 
+
     <main>
 
-        <h2>Add Product</h2>
+        <!-- Search Products -->
+        <h2>Search Products</h2>
 
-        <input type="text" id="productName" placeholder="Product name">
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="Search product"
+            onkeyup="searchProducts()"
+        >
+
         <br><br>
 
-        <input type="number" id="productPrice" placeholder="Product price">
+
+        <!-- Add Product -->
+        <h2>Add Product</h2>
+
+        <input
+            type="text"
+            id="productName"
+            placeholder="Product name"
+        >
+
+        <br><br>
+
+        <input
+            type="number"
+            id="productPrice"
+            placeholder="Product price"
+        >
+
         <br><br>
 
         <button onclick="addProduct()">Add Product</button>
 
         <hr>
 
+
+        <!-- Product List -->
         <h2>Product List</h2>
 
         <div id="productList">
+
             <p>No products available.</p>
+
         </div>
 
     </main>
 
-    <script>
-        function addProduct() {
-            let name = document.getElementById("productName").value;
-            let price = document.getElementById("productPrice").value;
 
+    <script>
+
+        // Add a new product
+        function addProduct() {
+
+            let name =
+                document.getElementById("productName").value;
+
+            let price =
+                document.getElementById("productPrice").value;
+
+
+            // Check whether product details are entered
             if (name === "" || price === "") {
+
                 alert("Please enter product details.");
+
                 return;
             }
 
+
+            // Add product to product list
             document.getElementById("productList").innerHTML +=
                 "<p>" + name + " - ₹" + price + "</p>";
 
+
+            // Clear input fields
             document.getElementById("productName").value = "";
+
             document.getElementById("productPrice").value = "";
         }
+
+
+        // Search products
+        function searchProducts() {
+
+            let searchText =
+                document.getElementById("searchBox").value.toLowerCase();
+
+
+            let products =
+                document.getElementById("productList")
+                .getElementsByTagName("p");
+
+
+            // Check every product
+            for (let product of products) {
+
+                if (
+                    product.innerText
+                    .toLowerCase()
+                    .includes(searchText)
+                ) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+            }
+        }
+
     </script>
 
 </body>
+
 </html>
