@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Shopping Cart</h1>
+        <p>Manage items in your cart</p>
+    </header>
+
+    <main>
+
+        <h2>Available Products</h2>
+
+        <div id="products">
+
+            <p>
+                Laptop - ₹50000
+                <button onclick="addToCart('Laptop', 50000)">
+                    Add to Cart
+                </button>
+            </p>
+
+            <p>
+                Smartphone - ₹25000
+                <button onclick="addToCart('Smartphone', 25000)">
+                    Add to Cart
+                </button>
+            </p>
+
+            <p>
+                Headphones - ₹2000
+                <button onclick="addToCart('Headphones', 2000)">
+                    Add to Cart
+                </button>
+            </p>
+
+        </div>
+
+        <hr>
+
+        <h2>My Cart</h2>
+
+        <div id="cartList">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <h3>
+            Total: ₹<span id="total">0</span>
+        </h3>
+
+    </main>
+
+
+    <script>
+
+        // Store cart items
+        let cart = [];
+
+
+        // Add product to cart
+        function addToCart(name, price) {
+
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            displayCart();
+        }
+
+
+        // Display cart items
+        function displayCart() {
+
+            let cartList =
+                document.getElementById("cartList");
+
+            let total = 0;
+
+            cartList.innerHTML = "";
+
+
+            if (cart.length === 0) {
+
+                cartList.innerHTML =
+                    "<p>Your cart is empty.</p>";
+
+                document.getElementById("total").innerText = "0";
+
+                return;
+            }
+
+
+            for (let item of cart) {
+
+                cartList.innerHTML +=
+                    "<p>" +
+                    item.name +
+                    " - ₹" +
+                    item.price +
+                    "</p>";
+
+                total += item.price;
+            }
+
+
+            document.getElementById("total").innerText =
+                total;
+        }
+
+    </script>
+
+</body>
+
+</html>
