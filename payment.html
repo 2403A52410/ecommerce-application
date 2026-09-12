@@ -76,9 +76,16 @@
             }
 
 
-            document.getElementById("paymentMessage").innerText =
-                "Payment of ₹" + amount +
-                " completed successfully!";
+            if (card.length < 12) {
+
+    alert("Please enter a valid card number.");
+
+    return;
+}
+
+document.getElementById("paymentMessage").innerText =
+    "Payment of ₹" + amount +
+    " completed successfully!";
         }
 
     </script>
