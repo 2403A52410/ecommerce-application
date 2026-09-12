@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Product Management</h1>
+        <p>Manage and search products</p>
+    </header>
+
+    <main>
+
+        <h2>Add Product</h2>
+
+        <input type="text" id="productName" placeholder="Product name">
+        <br><br>
+
+        <input type="number" id="productPrice" placeholder="Product price">
+        <br><br>
+
+        <button onclick="addProduct()">Add Product</button>
+
+        <hr>
+
+        <h2>Product List</h2>
+
+        <div id="productList">
+            <p>No products available.</p>
+        </div>
+
+    </main>
+
+    <script>
+        function addProduct() {
+            let name = document.getElementById("productName").value;
+            let price = document.getElementById("productPrice").value;
+
+            if (name === "" || price === "") {
+                alert("Please enter product details.");
+                return;
+            }
+
+            document.getElementById("productList").innerHTML +=
+                "<p>" + name + " - ₹" + price + "</p>";
+
+            document.getElementById("productName").value = "";
+            document.getElementById("productPrice").value = "";
+        }
+    </script>
+
+</body>
+</html>
